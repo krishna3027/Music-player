@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="player.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>Music player</title>
+</head>
+<style>
+    
+html,body{
+    background-color: rgba(11, 5, 39, 0.986);
+    color: white;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.top{
+    margin:0px;
+    padding: 5px;
+    display: flex;
+    /* border: 2px solid yellow; */
+    background-color: rgba(11, 5, 39, 0.986);
+    top: 0%;
+    height: 150px;
+}
+
+.profile-pic{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
+input{
+    /* height: 20px; */
+    margin:auto;
+    border: none;
+    font-weight: bold;
+    padding: 0px;
+    background-color: rgb(17, 18, 73);
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    color: white;
+    width:100%;
+}
+
+#search,#mic{
+    margin: auto;
+}
+
+
+#left{
+    display: flex;
+    /* border: 2px solid greenyellow; */
+    flex: 5;
+}
+
+#main-logo{
+    margin: auto;
+    margin-left: 4px;
+}
+
+#fav-word{
+    margin: auto;
+    margin-right: 75%;
+}
+
+#right{
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+    flex: 4;
+}
+
+#notification-bell{
+    margin: auto;
+}
+
+
+.query{
+    padding: 8px;
+    margin: auto;
+    display: flex;
+    background-color: rgb(14, 15, 97);
+    color: white;
+    border-radius: 5px;
+    margin-left: 0px;
+    /* height: 25px; */
+    width: 60%;
+    height: 30%;
+
+}
+
+/* design for mid-conten starts here  */
+
+.mid-content{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    overflow-y:scroll; 
+    overflow: hidden;
+}
+
+#content-1{
+    flex:3;
+    /* border: 20px solid red; */
+    overflow-y: scroll;
+}
+
+#content-1::-webkit-scrollbar {
+    display: none;
+  }
+
+
+#card1{
+    display: flex;
+    border-radius: 10px;
+    overflow-x: scroll;
+    /* justify-content: space-around; */
+}
+
+#card1::-webkit-scrollbar {
+    display: none;
+  }
+
+#card1>img{
+    margin: 5px;
+    border-radius: 10px;
+}
+
+#content-2{
+    flex:2;
+    /* border: 12px solid greenyellow; */
+    overflow-y:scroll;
+    
+}
+
+#content-2::-webkit-scrollbar {
+    display: none;
+  }
+/* design for bottom navigation starts here  */
+
+
+.bottom{
+    display: flex;
+    background-color: rgb(148, 163, 204);
+    color: black;
+    bottom: 0px;
+    bottom: 0;
+}
+
+#song-info{
+    display: flex;
+    flex: 1.5;
+    justify-content: space-around;
+}
+
+#caption{
+    color:rgb(116, 107, 107);
+}
+#bt-nav-fav {
+    transition: all 0.1s linear;
+}
+ /* transition effect for favorite and block icon */
+            #bt-nav-fav:hover  {
+                transform: scale(1.5);
+            }
+
+            #bt-nav-fav:hover {
+                color: red;
+            }
+
+            #bt-nav-blk {
+                transition: all 0.1s linear;
+            }
+
+            #bt-nav-blk:hover  {
+                transform: scale(1.5);
+            }
+
+            #bt-nav-blk:hover {
+                color: red;
+            }
+
+#song-data{
+    margin: auto 0;
+}            
+#play-img{
+    margin: auto 0;
+}            
+#add-ons{
+    margin: auto 0;
+}            
+
+#player{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    padding: 1% 4%;
+}
+
+#player-icons{
+    flex: 1;
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+}
+
+#progress-bar{
+    display: flex;
+    flex: 1;
+}
+
+#other-icons{
+    margin: auto 0;
+    display: flex;
+    flex: 1;
+    padding: 0%;
+}
+
+
+
+.full-content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+/* the css for carousel  */
+
+body {
+    margin: 0;
+    /* background: #EEE; */
+    user-select: none;
+    font-family: sans-serif;
+  }
+
+  
+#slider {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    perspective: 1400px;
+    transform-style: preserve-3d;
+  }
+  
+  input[type=radio] {
+    position: relative;
+    top: 108%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    margin: 0 15px 0 0;
+    opacity: 0.4;
+    transform: translateX(-83px);
+    cursor: pointer;
+  }
+  
+  
+  input[type=radio]:nth-child(5) {
+    margin-right: 0px;
+  }
+  
+  input[type=radio]:checked {
+    opacity: 1;
+  }
+  
+  
+  
+  
+  #slider label,
+  #slider label img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 400ms ease;
+  }
+  
+  
+  
+  /* Slider Functionality */
+  
+  /* Active Slide */
+  #s1:checked ~ #slide1,
+   #s2:checked ~ #slide2,
+    #s3:checked ~ #slide3,
+     #s4:checked ~ #slide4,
+      #s5:checked ~ #slide5 {
+    box-shadow: 0 13px 26px rgba(0,0,0, 0.3), 0 12px 6px rgba(0,0,0, 0.2);
+    transform: translate3d(0%, 0, 0px);
+  }
+  
+  /* Next Slide */
+  #s1:checked ~ #slide2,
+  #s2:checked ~ #slide3,
+    #s3:checked ~ #slide4,
+     #s4:checked ~ #slide5,
+      #s5:checked ~ #slide1 {
+    box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+    transform: translate3d(20%, 0, -100px);
+  }
+  
+  
+  /* Next to Next Slide */
+  #s1:checked ~ #slide3,
+   #s2:checked ~ #slide4,
+    #s3:checked ~ #slide5,
+     #s4:checked ~ #slide1,
+      #s5:checked ~ #slide2 {
+    box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+    transform: translate3d(40%, 0, -250px);
+  }
+  
+  /* Previous to Previous Slide */
+  #s1:checked ~ #slide4,
+   #s2:checked ~ #slide5,
+    #s3:checked ~ #slide1,
+     #s4:checked ~ #slide2,
+      #s5:checked ~ #slide3 {
+    box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+    transform: translate3d(-40%, 0, -250px);
+  }
+  
+  /* Previous Slide */
+  #s1:checked ~ #slide5,
+   #s2:checked ~ #slide1,
+    #s3:checked ~ #slide2,
+     #s4:checked ~ #slide3,
+      #s5:checked ~ #slide4 {
+    box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+    transform: translate3d(-20%, 0, -100px);
+  }
+  
+  #queue-line{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  #queue-fl{
+      display: flex;
+      color: aqua;
+  }
+
+  #ven-mo{
+      margin: auto;
+  }
+
+  /* list in second mid-content  */
+
+  #list-info{
+    display: flex;
+    flex: 1.5;
+    justify-content: space-around;
+    background-color: rgb(32, 31, 41);
+    padding: 5px 5px;
+    /* border: 2px solid red; */
+    margin: 10px 10px;
+  }
+  
+  #list-img{
+      border-radius: 15px;
+  }
+
+ #end-title{
+     text-align: center;
+     /* background-color: greenyellow; */
+     border: 2px solid;
+     /* border-radius: 10px; */
+ }
+
+ @media screen and (max-width: 600px){
+
+    .top{
+    height: 100px;
+    }
+
+
+
+   #fav-word{
+       /* border: 1px solid; */
+       margin-right: 0% ;
+       text-align: center;
+
+   }
+
+   #main-logo{
+       margin: auto;
+   }
+
+
+
+    #slider {
+    width: 50%;
+    height: 30%;
+    }
+
+
+    .mid-content{
+    flex-direction: column;
+    }
+    #content-2{
+        display: none;
+    }
+    .query{
+        min-width:150px ;
+    }
+    /* #song-info{
+        display: none;
+    } */
+
+    #dis-name{
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-style:'segoe UI';
+    }
+    #other-icons{
+        display: none;
+    }
+    #player{
+        display: flex;
+        flex-direction: column;
+        flex: 2;
+        padding: 1% 4%;
+    }
+    
+    #player-icons{
+        /* margin: auto; */
+        flex: 1;
+        display: flex;
+        justify-content:space-between;
+        width: 100%;
+    }
+    
+    /* #progress-bar{
+        display: none;
+    }    */
+
+    .bottom{
+        width: 100%;
+        flex-direction:column-reverse;
+    }
+
+    #song-data{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        bottom: 0;
+    }
+    
+    #song-data>p{
+        display: none;
+    }
+
+    #add-ons{
+        display: none;
+    }
+
+    #play-img{
+        display: none;
+    }
+
+    #end-title{
+        display: none;
+    }
+}
+</style>
+<body>
+
+    <!-- Top navigation bar -->
+
+    <div class="full-content">
+    <nav class="top">
+            <div id="left">
+                <img id="main-logo" width="35px" height="35px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Beats_Music_logo.svg/2045px-Beats_Music_logo.svg.png" alt="a head logo"/><br>
+                <h3 id="fav-word">Krish Player</h3>
+            </div>
+            <div id="right">
+                <div class="query">
+                    <i id="search" class="material-icons">search</i>
+                    <input placeholder="Search" />
+                    <i id="mic" class="material-icons">mic</i>
+                </div>
+                <i id="notification-bell" class="material-icons">notifications</i>
+                <img class="profile-pic" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW9kZWx8ZW58MHwxfDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60" alt="a pic"/>
+            </div>
+        </nav>
+
+
+        <!-- center content -->
+
+        <div class="mid-content">
+            <div id="content-1">
+                <section id="slider">
+                    <input type="radio" name="slider" id="s1" checked>
+                    <input type="radio" name="slider" id="s2">
+                    <input type="radio" name="slider" id="s3">
+                    <input type="radio" name="slider" id="s4">
+                    <input type="radio" name="slider" id="s5">
+                  
+                    <label for="s1" id="slide1"><img src="https://wallpapercave.com/wp/wp2634222.jpg" alt=""></label>
+                    <label for="s2" id="slide2"><img src="https://images.unsplash.com/photo-1495305379050-64540d6ee95d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fG11c2ljfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=400&q=60" alt=""></label>
+                    <label for="s3" id="slide3"><img src="https://wallpaperaccess.com/full/1154341.jpg" alt=""></label>
+                    <label for="s4" id="slide4"><img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG11c2ljfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=400&q=60" alt=""></label>
+                    <label for="s5" id="slide5"><img src="https://images5.alphacoders.com/343/thumb-1920-343645.jpg" alt=""></label>
+                  </section>
+                  
+                <h1>Latest release</h1>
+                <div id="card1">
+                    <img id="card1.1" width="150px" src="https://images.unsplash.com/photo-1447789624106-34acdd381c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card-1">
+                    <img id="card1.2" width="150px" src="https://images.unsplash.com/photo-1459232940206-e614670fece3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.2">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1543510616-a4025b9c1434?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                </div>
+                <h1>Popular artist</h1>
+                <div id="card1">
+                    <img id="card1.1" width="150px" src="https://images.unsplash.com/photo-1447789624106-34acdd381c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card-1">
+                    <img id="card1.2" width="150px" src="https://images.unsplash.com/photo-1459232940206-e614670fece3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.2">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1543510616-a4025b9c1434?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.1" width="150px" src="https://images.unsplash.com/photo-1447789624106-34acdd381c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card-1">
+                    <img id="card1.2" width="150px" src="https://images.unsplash.com/photo-1459232940206-e614670fece3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.2">
+                </div>
+                <h1>Latest english</h1>
+                <div id="card1">
+                    <img id="card1.1" width="150px" src="https://images.unsplash.com/photo-1447789624106-34acdd381c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card-1">
+                    <img id="card1.2" width="150px" src="https://images.unsplash.com/photo-1459232940206-e614670fece3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.2">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1543510616-a4025b9c1434?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.1" width="150px" src="https://images.unsplash.com/photo-1447789624106-34acdd381c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card-1">
+                    <img id="card1.2" width="150px" src="https://images.unsplash.com/photo-1459232940206-e614670fece3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.2">
+                </div>
+                <h1>Most played</h1>
+                <div id="card1">
+                    <img id="card1.1" width="150px" src="https://images.unsplash.com/photo-1447789624106-34acdd381c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card-1">
+                    <img id="card1.2" width="150px" src="https://images.unsplash.com/photo-1459232940206-e614670fece3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.2">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1543510616-a4025b9c1434?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                    <img id="card1.3" width="150px" src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="card1.3">
+                </div>
+                <h1 id="end-title"> </h1>
+                
+                
+            </div>
+            <div id="content-2">
+                <div id="queue-line">
+                <h2>Queue</h2>
+                <div id="queue-fl">
+                <h3>Queue</h3><i id="ven-mo" class="material-icons">expand_more</i>
+                </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1520872024865-3ff2805d8bb3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3RheSUyMG11c2ljfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Play Rocks</span>
+                        <p id="caption">by frog</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1518911710364-17ec553bde5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHN0YXklMjBtdXNpY3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Uplerrs</span>
+                        <p id="caption">by machine</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1638579577793-925bb92d744b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHN0YXklMjBtdXNpY3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Tring mac</span>
+                        <p id="caption">by blizz</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1565624582882-8da88b7bc551?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3RheSUyMG11c2ljfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Ex-tune</span>
+                        <p id="caption">by smokeY</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1573219530703-7afb5cc94245?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHN0YXklMjBtdXNpY3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Play tram</span>
+                        <p id="caption">by raven</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1631208446303-40facec6e391?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNvdXBsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Ringa Ringa</span>
+                        <p id="caption">by D.S.P</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1613205907727-f125518565fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fHN0YXklMjBtdXNpY3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Try Smoke</span>
+                        <p id="caption">by Ugly dude</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1542203463-e3f116da76ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGNvdXBsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Ringa Ringa</span>
+                        <p id="caption">by D.S.P</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1629096193181-89aa83f523cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Njl8fHN0YXklMjBtdXNpY3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Night bliss</span>
+                        <p id="caption">by Breams</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1542203463-e3f116da76ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGNvdXBsZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span id="dis-name">Ringa Ringa</span>
+                        <p id="caption">by D.S.P</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <div id="list-info">
+                    <div id="play-img">
+                        <img width="75px" id="list-img" src="https://images.unsplash.com/photo-1573219530703-7afb5cc94245?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHN0YXklMjBtdXNpY3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                    </div>
+                    <div id="song-data">
+                        <span>Play tram</span>
+                        <p id="caption">by raven</p>
+                    </div>
+                    <div id="add-ons">
+                        <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                        <i id="bt-nav-blk"
+                        class="material-icons">block</i> 
+                    </div>
+                </div>
+                <h1 id="end-title"> </h1>
+                
+            </div>
+        </div>
+
+
+        <!-- bottom navigation footer  -->
+
+        <nav class="bottom">
+            <div id="song-info">
+                <div id="play-img">
+                    <img width="75px" src="https://images.unsplash.com/photo-1608153488161-803b502750fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y291cGxlfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=400&q=60" alt="a pic">
+                </div>
+                <div id="song-data">
+                    <b>Song name</b>
+                    <p id="caption">by D.S.P</p>
+                </div>
+                <div id="add-ons">
+                    <i id="bt-nav-fav" class="material-icons">favorites</i> 
+                    <i id="bt-nav-blk"
+                    class="material-icons">block</i> 
+                </div>
+            </div>
+            <div id="player">
+                <div id="player-icons">
+                    <i class="material-icons">shuffle</i>
+                    <i class="material-icons">skip_previous</i>
+                    <i class="material-icons">play_circle</i>
+                    <i class="material-icons">skip_next</i>
+                    <i class="material-icons">replay</i>
+                </div>
+                <div id="progress-bar">
+                    <h1>0:00</h1>
+                    <input type="range" min="0" max="100" value="25" />
+                    <h1>3:25</h1>
+                </div>
+            </div>
+            <div id="other-icons">
+                <i class="material-icons">list</i> 
+                <i class="material-icons">laptop_mac</i> 
+                <i class="material-icons">volume_up</i>
+                <input type="range" min="0" max="100" value="30"> 
+                <i class="material-icons">fullscreen</i> 
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>
